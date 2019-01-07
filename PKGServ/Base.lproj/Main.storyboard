@@ -1084,6 +1084,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="changePortButton" destination="fGZ-Yw-aVS" id="6yn-hE-0AK"/>
                         <outlet property="contentsView" destination="8ge-Ho-bki" id="soY-vP-Eku"/>
                         <outlet property="hostedTextField" destination="ZxA-uR-h3I" id="Pvd-iX-Ytd"/>
                         <outlet property="localAddressField" destination="6vu-u3-WIt" id="IOG-8O-oMp"/>
