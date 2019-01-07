@@ -1039,9 +1039,6 @@
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                         <font key="font" metaFont="systemBold" size="12"/>
                                                     </buttonCell>
-                                                    <connections>
-                                                        <action selector="openGitHub:" target="XfG-lQ-9wD" id="149-e2-H3i"/>
-                                                    </connections>
                                                 </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gmP-cF-e74">
                                                     <rect key="frame" x="73" y="103" width="334" height="17"/>
@@ -1061,17 +1058,6 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1JK-PM-R55">
-                                                    <rect key="frame" x="309" y="78" width="88" height="13"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="recessed" title="Open his GitHub" bezelStyle="recessed" alignment="center" imageScaling="proportionallyDown" inset="2" id="Qd7-yy-UUC">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                        <font key="font" metaFont="systemBold" size="10"/>
-                                                    </buttonCell>
-                                                    <connections>
-                                                        <action selector="fivepxGit:" target="XfG-lQ-9wD" id="Yld-tX-2TF"/>
-                                                    </connections>
-                                                </button>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JnV-Gs-xPc">
                                                     <rect key="frame" x="259" y="179" width="78" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
@@ -1098,19 +1084,13 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="changePort" destination="fGZ-Yw-aVS" id="cxb-he-UHo"/>
                         <outlet property="contentsView" destination="8ge-Ho-bki" id="soY-vP-Eku"/>
-                        <outlet property="hostedTextField" destination="ZxA-uR-h3I" id="TpZ-hN-ok4"/>
-                        <outlet property="ipAddressField" destination="6vu-u3-WIt" id="SXp-AY-lru"/>
+                        <outlet property="hostedTextField" destination="ZxA-uR-h3I" id="Pvd-iX-Ytd"/>
                         <outlet property="localAddressField" destination="6vu-u3-WIt" id="IOG-8O-oMp"/>
                         <outlet property="pathField" destination="Bn7-Du-ULq" id="vmT-Hw-6Mu"/>
-                        <outlet property="pkgServHostLabel" destination="ZxA-uR-h3I" id="03j-Rg-NpG"/>
                         <outlet property="portField" destination="jBp-4R-vP2" id="DBG-nr-60S"/>
-                        <outlet property="portTextField" destination="jBp-4R-vP2" id="AoR-9Q-Aud"/>
-                        <outlet property="selectedPathLabel" destination="Bn7-Du-ULq" id="nek-KP-UQU"/>
-                        <outlet property="serverLblStat" destination="4OE-WD-dTy" id="Jpr-VC-03A"/>
+                        <outlet property="settingsStatusField" destination="hFo-6I-CzP" id="3qw-hF-qaJ"/>
                         <outlet property="statusField" destination="4OE-WD-dTy" id="cWX-ni-rOv"/>
-                        <outlet property="test" destination="hFo-6I-CzP" id="Soa-Ll-hvi"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
