@@ -925,7 +925,7 @@
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                     <connections>
-                                                        <action selector="helpButtonPressed:" target="XfG-lQ-9wD" id="wnP-dt-0kS"/>
+                                                        <action selector="helpButtonPressed:" target="XfG-lQ-9wD" id="wiG-lJ-eLG"/>
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tce-ae-jQ5">
@@ -936,7 +936,7 @@
                                                         <font key="font" metaFont="system"/>
                                                     </buttonCell>
                                                     <connections>
-                                                        <action selector="makeListButton:" target="XfG-lQ-9wD" id="ENy-58-ski"/>
+                                                        <action selector="makeListButtonPressed:" target="XfG-lQ-9wD" id="enV-N6-KSR"/>
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3e8-Mi-gl2">
@@ -1103,7 +1103,6 @@
                         <outlet property="hostedTextField" destination="ZxA-uR-h3I" id="TpZ-hN-ok4"/>
                         <outlet property="ipAddressField" destination="6vu-u3-WIt" id="SXp-AY-lru"/>
                         <outlet property="localAddressField" destination="6vu-u3-WIt" id="IOG-8O-oMp"/>
-                        <outlet property="makeListforHan" destination="tce-ae-jQ5" id="n9N-hf-tUv"/>
                         <outlet property="pathField" destination="Bn7-Du-ULq" id="vmT-Hw-6Mu"/>
                         <outlet property="pkgServHostLabel" destination="ZxA-uR-h3I" id="03j-Rg-NpG"/>
                         <outlet property="portField" destination="jBp-4R-vP2" id="DBG-nr-60S"/>

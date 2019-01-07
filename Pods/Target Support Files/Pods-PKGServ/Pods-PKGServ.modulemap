@@ -1,0 +1,6 @@
+framework module Pods_PKGServ {
+  umbrella header "Pods-PKGServ-umbrella.h"
+
+  export *
+  module * { export * }
+}
