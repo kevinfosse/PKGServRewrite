@@ -18,6 +18,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var portField: NSTextField!
     @IBOutlet weak var hostedTextField: NSTextField!
     @IBOutlet weak var settingsStatusField: NSTextField!
+    @IBOutlet weak var changePortButton: NSButton!
     
     var selectedPath:String = ""
     let fm = FileManager.default
@@ -87,8 +88,8 @@ class ViewController: NSViewController {
     @IBAction func helpButtonPressed(_ sender: NSButton) {
         let helpAlert = NSAlert()
         helpAlert.alertStyle = .informational
-        helpAlert.messageText = "How to obtain my local IP?"
-        helpAlert.informativeText = "To obtain your Local IP address, you must go to the system > network preferences and it will be displayed under 'Status'."
+        helpAlert.messageText = "What is this?"
+        helpAlert.informativeText = "This application hosts a web server on your computer. It uses your machine's local IP address and a port you can specify (default is port 80). You can connect to this server through your web browser."
         helpAlert.runModal()
     }
     @IBAction func makeListButtonPressed(_ sender: NSButton) {
@@ -155,6 +156,11 @@ class ViewController: NSViewController {
             sender.title = "Stop Server"
             statusField.textColor = NSColor.green
             statusField.stringValue = "Server running on port \(serverPort)"
+            hostedTextField.stringValue = "PKGServ is being hosted at"
+            settingsStatusField.stringValue = ""
+            changePortButton.isEnabled = false
+            portField.stringValue = "\(serverPort)"
+            portField.isEditable = false
         } else if serverStarted { // if the server is already running when the button is pressed, stop the server.
             serverStarted = !serverStarted
             server.stop()
@@ -162,15 +168,17 @@ class ViewController: NSViewController {
             sender.title = "Start Server"
             statusField.textColor = NSColor.red
             statusField.stringValue = "Server stopped"
+            hostedTextField.stringValue = "PKGServ will be hosted at"
+            changePortButton.isEnabled = true
+            portField.stringValue = ""
+            portField.isEditable = true
         }
     }
     @IBAction func refreshButtonPressed(_ sender: NSButton) {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         localAddressField.stringValue = getWiFiAddress()!
-        
     }
 
     override var representedObject: Any? {
