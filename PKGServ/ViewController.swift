@@ -27,6 +27,7 @@ class ViewController: NSViewController {
     var localAddress : String = ""
     var serverPort : String = "80"
     var serverStarted = false
+    let PKGServDefaults = UserDefaults.standard
     
     func getWiFiAddress() -> String? {
         var address : String?
@@ -74,7 +75,7 @@ class ViewController: NSViewController {
         panel.beginSheetModal(for:self.view.window!) { (response) in
             if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
                 self.selectedPath = panel.url!.path
-                // do whatever you what with the file path
+                self.PKGServDefaults.set(self.selectedPath, forKey: "userDefinedPath")
                 self.pathField.stringValue = self.selectedPath
                 print("User has selected : \(self.selectedPath)")
             }
@@ -107,6 +108,7 @@ class ViewController: NSViewController {
         }
     }
     @IBAction func changePortButtonPressed(_ sender: NSButton) {
+        let serverPortAsInt = Int(serverPort)
         if serverStarted == true {
             settingsStatusField.stringValue = "Cannot change server port when server is running."
         } else {
@@ -114,6 +116,7 @@ class ViewController: NSViewController {
                 settingsStatusField.stringValue = "Please provide a valid port."
             } else {
                 serverPort = portField.stringValue
+                PKGServDefaults.set(serverPortAsInt, forKey: "userDefinedServerPort")
                 settingsStatusField.stringValue = "Server port changed to \(serverPort)."
             }
         }
@@ -175,18 +178,16 @@ class ViewController: NSViewController {
         }
     }
     @IBAction func refreshButtonPressed(_ sender: NSButton) {
+        // refreshy stuff here
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        if PKGServDefaults.string(forKey: "userDefinedPath") != nil {
+            // if they've used the application once and saved the path
+            selectedPath = PKGServDefaults.string(forKey: "userDefinedPath")!
+            self.pathField.stringValue = self.selectedPath
+        }
         localAddressField.stringValue = getWiFiAddress()!
     }
 
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
-
 }
-
