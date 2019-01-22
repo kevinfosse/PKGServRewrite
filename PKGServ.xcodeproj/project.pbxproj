@@ -346,13 +346,13 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 99ENHKG76U;
+				DEVELOPMENT_TEAM = J3DUEJCSNW;
 				INFOPLIST_FILE = PKGServ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DylanBolger.PKGServ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevxxf.PKGServ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -368,13 +368,13 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 99ENHKG76U;
+				DEVELOPMENT_TEAM = J3DUEJCSNW;
 				INFOPLIST_FILE = PKGServ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DylanBolger.PKGServ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevxxf.PKGServ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

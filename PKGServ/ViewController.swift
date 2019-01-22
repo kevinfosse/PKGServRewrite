@@ -19,14 +19,16 @@ class ViewController: NSViewController {
     @IBOutlet weak var hostedTextField: NSTextField!
     @IBOutlet weak var settingsStatusField: NSTextField!
     @IBOutlet weak var changePortButton: NSButton!
+    @IBOutlet weak var tableView: NSTableView!
     
     var selectedPath:String = ""
     let fm = FileManager.default
     let path = Bundle.main.resourcePath!
     let server = HttpServer()
     var localAddress : String = ""
-    var serverPort : String = "80"
+    var serverPort : Int = 80
     var serverStarted = false
+    var selectedPort : String = ""
     let PKGServDefaults = UserDefaults.standard
     
     func getWiFiAddress() -> String? {
@@ -108,15 +110,15 @@ class ViewController: NSViewController {
         }
     }
     @IBAction func changePortButtonPressed(_ sender: NSButton) {
-        let serverPortAsInt = Int(serverPort)
+        
         if serverStarted == true {
             settingsStatusField.stringValue = "Cannot change server port when server is running."
         } else {
             if portField.stringValue == "" {
                 settingsStatusField.stringValue = "Please provide a valid port."
             } else {
-                serverPort = portField.stringValue
-                PKGServDefaults.set(serverPortAsInt, forKey: "userDefinedServerPort")
+                serverPort = Int(portField.stringValue)!
+                PKGServDefaults.set(serverPort, forKey: "userDefinedServerPort")
                 settingsStatusField.stringValue = "Server port changed to \(serverPort)."
             }
         }
@@ -150,7 +152,7 @@ class ViewController: NSViewController {
             }
             server["/files/:path"] = directoryBrowser("/")
             do {
-                try server.start(portInt!, forceIPv4: true)
+                try server.start(portInt, forceIPv4: true)
                 print("Server is live on port \(try server.port()).")
                 
             } catch {
@@ -179,7 +181,23 @@ class ViewController: NSViewController {
     }
     @IBAction func refreshButtonPressed(_ sender: NSButton) {
         // refreshy stuff here
+        let fileManager = FileManager.default
+        
+        // Get contents in directory: '.' (current one)
+        
+        do {
+            let files = try fileManager.contentsOfDirectory(atPath: selectedPath)
+            
+            print(files)
+        }
+        catch let error as NSError {
+            print("Ooops! Something went wrong: \(error)")
+        }
     }
+    
+    // Now we can display content into a TableView
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if PKGServDefaults.string(forKey: "userDefinedPath") != nil {
@@ -187,7 +205,15 @@ class ViewController: NSViewController {
             selectedPath = PKGServDefaults.string(forKey: "userDefinedPath")!
             self.pathField.stringValue = self.selectedPath
         }
+        if PKGServDefaults.string(forKey: "userDefinedServerPort") != nil {
+            // if they've used the application once and saved the path
+            selectedPort = PKGServDefaults.string(forKey: "userDefinedServerPort")!
+          self.portField.stringValue = self.selectedPort
+            serverPort = Int(self.selectedPort)!
+        }
         localAddressField.stringValue = getWiFiAddress()!
     }
 
 }
+
+
